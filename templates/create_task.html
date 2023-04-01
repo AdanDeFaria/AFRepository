@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create a Task</title>
+</head>
+<body>
+    <h1>Create a Task</h1>
+    <form method="POST">
+        <label for="employee">Employee:</label>
+        <select id="employee" name="employee">
+            {% for employee in employees %}
+            <option value="{{ employee }}">{{ employee }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="project">Project:</label>
+        <select id="project" name="project">
+            {% for project in projects %}
+            <option value="{{ project }}">{{ project }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="task">Task:</label>
+        <select id="task" name="task">
+            {% for task in tasks %}
+            <option value="{{ task }}">{{ task }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="requester">Requester:</label>
+        <select id="requester" name="requester">
+            {% for requester in requesters %}
+            <option value="{{ requester }}">{{ requester }}</option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">Create Task</button>
+    </form>
+</body>
+</html>

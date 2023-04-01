@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Active Tasks</title>
+</head>
+<body>
+    <h1>Active Tasks</h1>
+    <ul>
+        {% for task in tasks %}
+        <li>
+            assigned to {{ task[1] }}: {{ task[2] }} (requested by {{ task[3] }})
+        </li>
+        {% endfor %}
+    </ul>
+    <p><a href="/">Back to Home</a></p>
+</body>
+</html>
