@@ -1,10 +1,33 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+	<meta charset="utf-8">
+	<title>Minha Página</title>
+	<!-- Estilo customizado -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}">
+
 </head>
 <body>
-
+	<header>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/projetos">Projetos</a></li>
+				<li><a href="/tarefas">Tarefas</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<!-- conteúdo da página aqui -->
+	</main>
+	<aside>
+		<ul>
+			<li><a href="/projetos/criando_projetos">Criar Projeto</a></li>
+			<li><a href="/projetos/finalizando_projetos">Finalizar Projeto</a></li>
+			<li><a href="/tarefas/criando_tarefas">Criar Tarefa</a></li>
+			<li><a href="/tarefas/finalizando_tarefas">Finalizar Tarefa</a></li>
+		</ul>
+	</aside>
 </body>
 </html>
