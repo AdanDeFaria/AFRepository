@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fec03a05-71f0-4455-b4ca-d3ae017098b1" name="Changes" comment="commit" />
+    <list default="true" id="fec03a05-71f0-4455-b4ca-d3ae017098b1" name="Changes" comment="commit">
+      <change afterPath="$PROJECT_DIR$/home/templates/home/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templates/home/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templates/home/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetos/templates/projetos/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetos/templates/projetos/criando_projetos.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetos/templates/projetos/finalizando_projetos.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetos/templates/projetos/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetos/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tarefas/templates/tarefas/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tarefas/templates/tarefas/criando_tarefas.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tarefas/templates/tarefas/finalizando_tarefas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tarefas/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tarefas/urls.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,13 +42,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AFRepository" />
@@ -92,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680386786055</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="commit">
+      <created>1680443810659</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680443810660</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
