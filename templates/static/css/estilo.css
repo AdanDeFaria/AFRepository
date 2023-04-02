@@ -1,19 +1,21 @@
-#home {
-	background: #ffc107;
-	color: white;
+.conteudo {
+    background-color: #f2f2f2;
+    padding: 5px;
+    float: right;
+    width: 75%;
 }
 
-.caixa {
-	padding: 60px 0;
-	border-bottom: 1px solid #e5e5e5;
+.lateral {
+    background-color: #f2f2f2;
+    padding: 5px;
+    float: left;
+    width: 20%;
 }
 
-footer p a {
-	margin: 5px 15px;
-}
-
-#topo ul {
-    background-color: #b10333;
+.menu {
+    background-color: orange;
+    padding: 5px;
+    margin-bottom: 15px;
 }
 
 ul  {

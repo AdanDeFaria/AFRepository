@@ -16,4 +16,4 @@ def criando_tarefas(request):
     return render(request, 'tarefas/criando_tarefas.html', context)
 
 def finalizando_tarefas(request):
-    return render(request, "tarefas/finalizando_tarefas.html")
+    return render(request, "tarefas/finalizando_tarefas.html", context)

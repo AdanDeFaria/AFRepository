@@ -1,29 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>TAREFAS</title>
-</head>
-<body>
-	<header>
-		<nav>
-			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="/projetos">Projetos</a></li>
-				<li><a href="./">Tarefas</a></li>
-			</ul>
-		</nav>
-	</header>
-	<main>
-		<!-- conteúdo da página aqui -->
-	</main>
-	<aside>
-		<ul>
-			<li><a href="/projetos/criando_projetos">Criar Projeto</a></li>
-			<li><a href="/projetos/finalizando_projetos">Finalizar Projeto</a></li>
-			<li><a href="./criando_tarefas">Criar Tarefa</a></li>
-			<li><a href="./finalizando_tarefas">Finalizar Tarefa</a></li>
-		</ul>
-	</aside>
-</body>
-</html>
+{% extends 'home/base.html' %}
 
+{% block titulo %}
+Tarefas
+{% endblock %}
+
+{% block navegador %}
+<nav>
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/projetos">Projetos</a></li>
+		<li><a href="./">Tarefas</a></li>
+	</ul>
+</nav>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block lateral %}
+<aside>
+	<ul>
+		<li><a href="/projetos/criando_projetos">Criar Projeto</a></li>
+		<li><a href="/projetos/finalizando_projetos">Finalizar Projeto</a></li>
+		<li><a href="./criando_tarefas">Criar Tarefa</a></li>
+		<li><a href="./finalizando_tarefas">Finalizar Tarefa</a></li>
+	</ul>
+</aside>
+{% endblock %}

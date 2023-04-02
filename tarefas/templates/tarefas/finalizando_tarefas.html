@@ -1,10 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'tarefas/base.html' %}
 
-</body>
-</html>
+{% block titulo %}
+Tarefas
+{% endblock %}
+
+{% block navegador %}
+<nav>
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/projetos">Projetos</a></li>
+		<li><a href="./">Tarefas</a></li>
+	</ul>
+</nav>
+{% endblock %}
+
+{% block content %}
+<h1>Active Tasks</h1>
+<ul>
+    {% for task in tasks %}
+    <li>
+        assigned to {{ task[1] }}: {{ task[2] }} (requested by {{ task[3] }})
+    </li>
+    {% endfor %}
+</ul>
+<p><a href="/">Back to Home</a></p>
+{% endblock %}
+
+{% block lateral %}
+<aside>
+	<ul>
+		<li><a href="/projetos/criando_projetos">Criar Projeto</a></li>
+		<li><a href="/projetos/finalizando_projetos">Finalizar Projeto</a></li>
+		<li><a href="./criando_tarefas">Criar Tarefa</a></li>
+		<li><a href="./finalizando_tarefas">Finalizar Tarefa</a></li>
+	</ul>
+</aside>
+{% endblock %}
+
