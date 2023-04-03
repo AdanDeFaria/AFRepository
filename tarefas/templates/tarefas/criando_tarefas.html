@@ -1,4 +1,4 @@
-{% extends 'home/base.html' %}
+{% extends 'tarefas/base.html' %}
 
 {% block titulo %}
 Tarefas
@@ -44,7 +44,7 @@ Tarefas
         <option value="{{ requester }}">{{ requester }}</option>
         {% endfor %}
     </select><br>
-
+    {% csrf_token %}
     <button type="submit">Create Task</button>
 </form>
 {% endblock %}
