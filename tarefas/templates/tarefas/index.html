@@ -15,7 +15,24 @@ Tarefas
 {% endblock %}
 
 {% block content %}
-
+<table>
+	<thead>
+		<tr>
+			{% for tarefa in tarefas_keys %}
+				<th>{{ tarefa }}</th>
+			{% endfor %}
+		</tr>
+	</thead>
+	<tbody>
+		{% for tarefa_ativa in df %}
+			<tr>
+				{% for tarefa in tarefas_value %}
+					<td>{{ tarefa }}</td>
+				{% endfor %}
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
 {% endblock %}
 
 {% block lateral %}

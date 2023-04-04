@@ -29,6 +29,11 @@ tarefas = tarefas.loc[tarefas['status'] == "ativo"]
 tarefas = pd.DataFrame(tarefas)
 tarefas = tarefas.to_dict(orient="records")
 
+tarefas_values = []
+for tarefa in tarefas:
+    tarefa_values = tarefa.values()
+    tarefas_values.append(tarefa_values)
+
 tarefas_keys = list(tarefas[0].keys())
 print(tarefas_keys)
 
@@ -38,11 +43,12 @@ context = {
     'tasks' : tipos_tarefas,
     'requesters' : solicitantes,
     'df' : tarefas,
-    'tarefas_keys' : tarefas_keys
+    'tarefas_keys' : tarefas_keys,
+    'tarefas_values' : tarefas_values
 }
 
 def index(request):
-    return render(request, 'tarefas/index.html')
+    return render(request, 'tarefas/index.html', context)
 
 def criando_tarefas(request):
     if request.method == 'POST':
