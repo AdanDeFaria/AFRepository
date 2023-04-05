@@ -168,9 +168,7 @@ def finalizando_tarefas(request):
     if request.method == 'POST':
         # Extrai os valores dos campos do formulário
         id_select = int(request.POST['ids'])
-        print(id_select)
         for tarefa in tarefas_at:
-            print(tarefa)
             if tarefa['id'] == int(id_select):
                 tarefa['status'] = "finalizado"
                 tarefa['data_finalizacao'] = dt.now().strftime('%Y-%m-%d %H:%M:%S')
