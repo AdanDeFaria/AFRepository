@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fec03a05-71f0-4455-b4ca-d3ae017098b1" name="Changes" comment="commit">
+      <change beforePath="$PROJECT_DIR$/.idea/AFRepository.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AFRepository.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tarefas.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/tarefas.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tarefas/templates/tarefas/criando_tarefas.html" beforeDir="false" afterPath="$PROJECT_DIR$/tarefas/templates/tarefas/criando_tarefas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tarefas/templates/tarefas/finalizando_tarefas.html" beforeDir="false" afterPath="$PROJECT_DIR$/tarefas/templates/tarefas/finalizando_tarefas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tarefas/templates/tarefas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tarefas/templates/tarefas/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tarefas/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tarefas/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +47,8 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "last_opened_file_path": "C:/Users/gsi-Adan/Documents/GitHub/AFRepository",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -221,5 +229,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <option name="LAST_COMMIT_MESSAGE" value="commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tarefas/views.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

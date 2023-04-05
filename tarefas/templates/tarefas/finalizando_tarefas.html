@@ -15,14 +15,45 @@ Tarefas
 {% endblock %}
 
 {% block content %}
-<h1>Active Tasks</h1>
-<ul>
-    {% for task in tasks %}
-    <li>
-        assigned to {{ task[1] }}: {{ task[2] }} (requested by {{ task[3] }})
-    </li>
+<form method="POST">
+    <label for="ids">ID:</label>
+    <select id="ids" name="ids">
+        {% for id in ids %}
+        <option value="{{ id }}">{{ id }}</option>
+        {% endfor %}
+    </select>
+    {% csrf_token %}
+    <button type="submit">Finalizando Tarefa</button>
+</form>
+<h2>Tarefas Ativas</h2>
+<table>
+	<thead>
+		<tr>
+            <th>ID</th>
+            <th>Tarefas</th>
+            <th>Funcionários</th>
+            <th>Projetos</th>
+            <th>Solicitantes</th>
+            <th>Status</th>
+            <th>Data de Criação</th>
+            <th>Data de Finalização</th>
+        </tr>
+	</thead>
+	<tbody>
+		{% for tarefa in df %}
+      <tr>
+        <td>{{ tarefa.id }}</td>
+        <td>{{ tarefa.tarefas|upper }}</td>
+        <td>{{ tarefa.funcionarios|upper }}</td>
+        <td>{{ tarefa.projetos|upper }}</td>
+        <td>{{ tarefa.solicitantes|upper }}</td>
+        <td>{{ tarefa.status|upper }}</td>
+        <td>{{ tarefa.data_criacao|upper }}</td>
+        <td></td>
+      </tr>
     {% endfor %}
-</ul>
+	</tbody>
+</table>
 <p><a href="/">Back to Home</a></p>
 {% endblock %}
 
