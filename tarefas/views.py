@@ -31,11 +31,11 @@ tarefas = tarefas.to_dict(orient="records")
 
 tarefas_values = []
 for tarefa in tarefas:
-    tarefa_values = tarefa.values()
+    tarefa_values = list(tarefa.values())
     tarefas_values.append(tarefa_values)
 
 tarefas_keys = list(tarefas[0].keys())
-print(tarefas_keys)
+print(tarefas_values)
 
 context = {
     'employees' : funcionarios,
@@ -66,7 +66,7 @@ def criando_tarefas(request):
             tarefas_keys[3]: project,
             tarefas_keys[4]: requester,
             tarefas_keys[5]: "ativo",
-            tarefas_keys[6]: dt.now(),
+            tarefas_keys[6]: dt.now().strftime("Y"),
             tarefas_keys[7]: None
         }
 

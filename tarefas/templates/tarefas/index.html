@@ -18,19 +18,29 @@ Tarefas
 <table>
 	<thead>
 		<tr>
-			{% for tarefa in tarefas_keys %}
-				<th>{{ tarefa }}</th>
-			{% endfor %}
-		</tr>
+            <th>ID</th>
+            <th>Tarefas</th>
+            <th>Funcionários</th>
+            <th>Projetos</th>
+            <th>Solicitantes</th>
+            <th>Status</th>
+            <th>Data de Criação</th>
+            <th>Data de Finalização</th>
+        </tr>
 	</thead>
 	<tbody>
-		{% for tarefa_ativa in df %}
-			<tr>
-				{% for tarefa in tarefas_value %}
-					<td>{{ tarefa }}</td>
-				{% endfor %}
-			</tr>
-		{% endfor %}
+		{% for tarefa in df %}
+      <tr>
+        <td>{{ tarefa.id }}</td>
+        <td>{{ tarefa.tarefas }}</td>
+        <td>{{ tarefa.funcionarios }}</td>
+        <td>{{ tarefa.projetos }}</td>
+        <td>{{ tarefa.solicitantes }}</td>
+        <td>{{ tarefa.status }}</td>
+        <td>{{ tarefa.data_criacao }}</td>
+        <td></td>
+      </tr>
+    {% endfor %}
 	</tbody>
 </table>
 {% endblock %}
