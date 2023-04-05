@@ -93,7 +93,6 @@ def criando_tarefas(request):
     tarefas = tarefas.to_dict(orient="records")
     tarefas_at = tarefas_at.to_dict(orient="records")
 
-
     context_criando_tarefas = {
         'employees': funcionarios,
         'projects': projetos,
