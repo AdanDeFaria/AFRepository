@@ -15,7 +15,7 @@ Tarefas
 {% endblock %}
 
 {% block content %}
-<h2>Tarefas</h2>
+<h2>Tarefas Ativas</h2>
 <form method="POST">
     <label for="status">STATUS:</label>
     <select id="status" name="status">
@@ -49,10 +49,7 @@ Tarefas
         <td>{{ tarefa.solicitantes|upper }}</td>
         <td>{{ tarefa.status|upper }}</td>
         <td>{{ tarefa.data_criacao }}</td>
-        <td>{% if tarefa.data_finalizacao == "." %}
-            {% else %}
-                {{ tarefa.data_finalizacao }}
-            {% endif %}</td>
+        <td></td>
       </tr>
     {% endfor %}
 	</tbody>

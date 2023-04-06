@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+import numpy as np
 import pandas as pd
 import os
 from datetime import datetime as dt
@@ -6,71 +7,47 @@ from django.http import HttpResponse
 # Create your views here.
 usuario = os.environ['USERPROFILE']
 path = os.path.join(usuario, 'Documents', 'github', 'AFRepository')
-projetos = pd.read_excel(os.path.join(path, 'projeto.xlsx'), sheet_name="projetos")
-projetos = projetos.loc[projetos['status'] == "ativo", 'projetos']
-projetos = projetos.values.tolist()
-
-funcionarios = pd.read_excel(os.path.join(path, 'funcionarios.xlsx'), sheet_name="funcionarios")
-funcionarios = funcionarios.loc[funcionarios['status'] == "ativo", 'funcionarios']
-funcionarios = funcionarios.values.tolist()
-
-tipos_tarefas = pd.read_excel(os.path.join(path, 'tipos_tarefas.xlsx'), sheet_name="tipos_tarefas")
-tipos_tarefas = tipos_tarefas.loc[tipos_tarefas['status'] == "ativo", 'tipos_tarefas']
-tipos_tarefas = tipos_tarefas.values.tolist()
-
-solicitantes = pd.read_excel(os.path.join(path, 'solicitantes.xlsx'), sheet_name="solicitantes")
-solicitantes = solicitantes.loc[solicitantes['status'] == "ativo", 'solicitantes']
-solicitantes = solicitantes.values.tolist()
-
-tarefas = pd.read_excel(os.path.join(path, 'tarefas.xlsx'), sheet_name="tarefas")
-id_max = tarefas['id'].max()+1
-tarefas = tarefas.loc[tarefas['status'] == "ativo"]
-tarefas = pd.DataFrame(tarefas)
-tarefas = tarefas.to_dict(orient="records")
-
-tarefas_values = []
-for tarefa in tarefas:
-    tarefa_values = list(tarefa.values())
-    tarefas_values.append(tarefa_values)
-
-tarefas_keys = list(tarefas[0].keys())
-
-context = {
-    'employees' : funcionarios,
-    'projects' : projetos,
-    'tasks' : tipos_tarefas,
-    'requesters' : solicitantes,
-    'df' : tarefas,
-    'tarefas_keys' : tarefas_keys,
-    'tarefas_values' : tarefas_values
-}
 
 def index(request):
-    tarefas = pd.read_excel(os.path.join(path, 'tarefas.xlsx'), sheet_name="tarefas")
-    tarefas = tarefas.loc[tarefas['status'] == "ativo"]
+    tarefas_at = pd.read_excel(os.path.join(path, 'tarefas.xlsx'), sheet_name="tarefas")
+    tarefas_at = tarefas_at.replace(pd.NaT, ".")
+    status = list(tarefas_at['status'])
+    status.append("Todos")
+    tarefas = tarefas_at.loc[tarefas_at['status'] == "ativo"]
     tarefas = pd.DataFrame(tarefas)
     tarefas = tarefas.to_dict(orient="records")
+    tarefas_at = tarefas_at.to_dict(orient="records")
 
     tarefas_values = []
-    for tarefa in tarefas:
+    for tarefa in tarefas_at:
         tarefa_values = list(tarefa.values())
         tarefas_values.append(tarefa_values)
-
-    tarefas_keys = list(tarefas[0].keys())
+    tarefas_values = list(['' if x is None else x for x in tarefas_values])
     print(tarefas_values)
+    tarefas_keys = list(tarefas_at[0].keys())
 
     context_index = {
-        'df': tarefas,
+        'df': tarefas_at,
         'tarefas_keys': tarefas_keys,
-        'tarefas_values': tarefas_values
+        'tarefas_values': tarefas_values,
+        'status': status
     }
+
+    if request.method == 'POST':
+        # Extrai os valores dos campos do formulário
+        status1 = request.POST['status']
+
+        if status1 == "Todos":
+            return redirect(f'./')
+        else:
+            return redirect(f'./status_{status1}')
 
     return render(request, 'tarefas/index.html', context_index)
 
 def criando_tarefas(request):
     usuario = os.environ['USERPROFILE']
     path = os.path.join(usuario, 'Documents', 'github', 'AFRepository')
-    projetos = pd.read_excel(os.path.join(path, 'projeto.xlsx'), sheet_name="projetos")
+    projetos = pd.read_excel(os.path.join(path, 'projetos.xlsx'), sheet_name="projetos")
     projetos = projetos.loc[projetos['status'] == "ativo", 'projetos']
     projetos = projetos.values.tolist()
 
@@ -78,8 +55,8 @@ def criando_tarefas(request):
     funcionarios = funcionarios.loc[funcionarios['status'] == "ativo", 'funcionarios']
     funcionarios = funcionarios.values.tolist()
 
-    tipos_tarefas = pd.read_excel(os.path.join(path, 'tipos_tarefas.xlsx'), sheet_name="tipos_tarefas")
-    tipos_tarefas = tipos_tarefas.loc[tipos_tarefas['status'] == "ativo", 'tipos_tarefas']
+    tipos_tarefas = pd.read_excel(os.path.join(path, 'tarefas_tipos.xlsx'), sheet_name="tarefas_tipos")
+    tipos_tarefas = tipos_tarefas.loc[tipos_tarefas['status'] == "ativo", 'tarefas_tipos']
     tipos_tarefas = tipos_tarefas.values.tolist()
 
     solicitantes = pd.read_excel(os.path.join(path, 'solicitantes.xlsx'), sheet_name="solicitantes")
@@ -92,6 +69,15 @@ def criando_tarefas(request):
     tarefas = pd.DataFrame(tarefas)
     tarefas = tarefas.to_dict(orient="records")
     tarefas_at = tarefas_at.to_dict(orient="records")
+
+    tarefas_values = []
+
+    for tarefa in tarefas:
+        tarefa_values = list(tarefa.values())
+        tarefas_values.append(tarefa_values)
+    tarefas_values = list(['' if x is None else x for x in tarefas_values])
+
+    tarefas_keys = list(tarefas[0].keys())
 
     context_criando_tarefas = {
         'employees': funcionarios,
@@ -138,7 +124,7 @@ def criando_tarefas(request):
                         index=False,
                         sheet_name="tarefas"
                         )
-        return redirect('/')
+        return redirect('tarefas/')
     return render(request, 'tarefas/criando_tarefas.html', context_criando_tarefas)
 
 def finalizando_tarefas(request):
@@ -155,7 +141,7 @@ def finalizando_tarefas(request):
         print(tarefa)
         tarefa_values = list(tarefa.values())
         tarefas_values.append(tarefa_values)
-
+    tarefas_values = list(['' if x is None else x for x in tarefas_values])
     tarefas_keys = list(tarefas[0].keys())
 
     context_finalizando_tarefas = {
@@ -184,6 +170,71 @@ def finalizando_tarefas(request):
                         index=False,
                         sheet_name="tarefas"
                         )
-        return redirect('/')
+        return redirect('tarefas/')
 
     return render(request, "tarefas/finalizando_tarefas.html", context_finalizando_tarefas)
+
+def status_ativos(request):
+    tarefas_at = pd.read_excel(os.path.join(path, 'tarefas.xlsx'), sheet_name="tarefas")
+    tarefas = tarefas_at.loc[tarefas_at['status'] == f"ativo"]
+    status = list(tarefas_at['status'])
+    tarefas = pd.DataFrame(tarefas)
+    tarefas = tarefas.to_dict(orient="records")
+    tarefas_at = tarefas_at.to_dict(orient="records")
+    status.append("Todos")
+
+    tarefas_keys = list(tarefas[0].keys())
+
+    tarefas_values = []
+    for tarefa in tarefas:
+        tarefa_values = list(tarefa.values())
+        tarefas_values.append(tarefa_values)
+    tarefas_values = list(['' if x is None else x for x in tarefas_values])
+
+    context_todos = {
+        'df': tarefas,
+        'tarefas_keys': tarefas_keys,
+        'tarefas_values': tarefas_values,
+        'status': status
+    }
+    if request.method == 'POST':
+        # Extrai os valores dos campos do formulário
+        status1 = request.POST['status']
+
+        if status1 == "Todos":
+            return redirect(f'./')
+        else:
+            return redirect(f'./status_{status1}')
+    return render(request, "tarefas/status_ativos.html",  context_todos)
+
+def status_finalizados(request):
+    tarefas_at = pd.read_excel(os.path.join(path, 'tarefas.xlsx'), sheet_name="tarefas")
+    tarefas = tarefas_at.loc[tarefas_at['status'] == f"finalizado"]
+    status = list(tarefas_at['status'])
+    tarefas = pd.DataFrame(tarefas)
+    tarefas = tarefas.to_dict(orient="records")
+    tarefas_at = tarefas_at.to_dict(orient="records")
+    status.append("todos")
+
+    tarefas_keys = list(tarefas[0].keys())
+    tarefas_values = []
+    for tarefa in tarefas:
+        tarefa_values = list(tarefa.values())
+        tarefas_values.append(tarefa_values)
+    tarefas_values = list(['' if x is None else x for x in tarefas_values])
+
+    context_todos = {
+        'df': tarefas,
+        'tarefas_keys': tarefas_keys,
+        'tarefas_values': tarefas_values,
+        'status': status
+    }
+    if request.method == 'POST':
+        # Extrai os valores dos campos do formulário
+        status1 = request.POST['status']
+
+        if status1 == "Todos":
+            return redirect(f'./')
+        else:
+            return redirect(f'./status_{status1}')
+    return render(request, "tarefas/status_finalizados.html",  context_todos)
