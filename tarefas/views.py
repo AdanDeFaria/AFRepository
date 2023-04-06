@@ -11,7 +11,8 @@ path = os.path.join(usuario, 'Documents', 'github', 'AFRepository')
 def index(request):
     tarefas_at = pd.read_excel(os.path.join(path, 'tarefas.xlsx'), sheet_name="tarefas")
     tarefas_at = tarefas_at.replace(pd.NaT, ".")
-    status = list(tarefas_at['status'])
+    status = tarefas_at.drop_duplicates(subset=["status"])
+    status = status['status'].to_list()
     status.append("Todos")
     tarefas = tarefas_at.loc[tarefas_at['status'] == "ativo"]
     tarefas = pd.DataFrame(tarefas)
@@ -177,7 +178,8 @@ def finalizando_tarefas(request):
 def status_ativos(request):
     tarefas_at = pd.read_excel(os.path.join(path, 'tarefas.xlsx'), sheet_name="tarefas")
     tarefas = tarefas_at.loc[tarefas_at['status'] == f"ativo"]
-    status = list(tarefas_at['status'])
+    status = tarefas_at.drop_duplicates(subset=["status"])
+    status = status['status'].to_list()
     tarefas = pd.DataFrame(tarefas)
     tarefas = tarefas.to_dict(orient="records")
     tarefas_at = tarefas_at.to_dict(orient="records")
@@ -210,7 +212,8 @@ def status_ativos(request):
 def status_finalizados(request):
     tarefas_at = pd.read_excel(os.path.join(path, 'tarefas.xlsx'), sheet_name="tarefas")
     tarefas = tarefas_at.loc[tarefas_at['status'] == f"finalizado"]
-    status = list(tarefas_at['status'])
+    status = tarefas_at.drop_duplicates(subset=["status"])
+    status = status['status'].to_list()
     tarefas = pd.DataFrame(tarefas)
     tarefas = tarefas.to_dict(orient="records")
     tarefas_at = tarefas_at.to_dict(orient="records")

@@ -18,7 +18,7 @@ Tarefas
 <h2>Tarefas Ativas</h2>
 <form method="POST">
     <label for="status">STATUS:</label>
-    <select id="status" name="status">
+    <select id="status" name="status" >
         {% for statu in status %}
         <option value="{{ statu }}">{{ statu }}</option>
         {% endfor %}
