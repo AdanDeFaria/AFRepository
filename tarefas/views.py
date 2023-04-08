@@ -10,7 +10,10 @@ path = os.path.join(usuario, 'Documents', 'github', 'AFRepository')
 
 def index(request):
     tarefas_at = pd.read_excel(os.path.join(path, 'tarefas.xlsx'), sheet_name="tarefas")
+    tarefas_at['data_criacao'] = tarefas_at['data_criacao'].apply(
+        lambda x: pd.to_datetime(x).strftime('%d/%m/%Y %H:%M:%S'))
     tarefas_at = tarefas_at.replace(pd.NaT, ".")
+    print(tarefas_at)
     status = tarefas_at.drop_duplicates(subset=["status"])
     status = status['status'].to_list()
     status.append("Todos")
@@ -18,6 +21,12 @@ def index(request):
     tarefas = pd.DataFrame(tarefas)
     tarefas = tarefas.to_dict(orient="records")
     tarefas_at = tarefas_at.to_dict(orient="records")
+
+    for tarefa_at in tarefas_at:
+        print(tarefa_at)
+        if tarefa_at['data_finalizacao'] != ".":
+            data_finalizacao = tarefa_at['data_finalizacao'].to_pydatetime()
+            tarefa_at['data_finalizacao'] = data_finalizacao.strftime('%d/%m/%Y %H:%M:%S')
 
     tarefas_values = []
     for tarefa in tarefas_at:
@@ -130,12 +139,20 @@ def criando_tarefas(request):
 
 def finalizando_tarefas(request):
     tarefas_at = pd.read_excel(os.path.join(path, 'tarefas.xlsx'), sheet_name="tarefas")
+    tarefas_at['data_criacao'] = tarefas_at['data_criacao'].apply(
+        lambda x: pd.to_datetime(x).strftime('%d/%m/%Y %H:%M:%S'))
     tarefas = tarefas_at.loc[tarefas_at['status'] == "ativo"]
     ids = tarefas['id']
     tarefas = pd.DataFrame(tarefas)
     tarefas = tarefas.to_dict(orient="records")
     tarefas_at = tarefas_at.to_dict(orient="records")
     print(tarefas_at)
+
+    for tarefa_at in tarefas_at:
+        print(tarefa_at)
+        if tarefa_at['data_finalizacao'] != ".":
+            data_finalizacao = tarefa_at['data_finalizacao'].to_pydatetime()
+            tarefa_at['data_finalizacao'] = data_finalizacao.strftime('%d/%m/%Y %H:%M:%S')
 
     tarefas_values = []
     for tarefa in tarefas:
@@ -177,6 +194,8 @@ def finalizando_tarefas(request):
 
 def status_ativos(request):
     tarefas_at = pd.read_excel(os.path.join(path, 'tarefas.xlsx'), sheet_name="tarefas")
+    tarefas_at['data_criacao'] = tarefas_at['data_criacao'].apply(
+        lambda x: pd.to_datetime(x).strftime('%d/%m/%Y %H:%M:%S'))
     tarefas = tarefas_at.loc[tarefas_at['status'] == f"ativo"]
     status = tarefas_at.drop_duplicates(subset=["status"])
     status = status['status'].to_list()
@@ -211,6 +230,8 @@ def status_ativos(request):
 
 def status_finalizados(request):
     tarefas_at = pd.read_excel(os.path.join(path, 'tarefas.xlsx'), sheet_name="tarefas")
+    tarefas_at['data_criacao'] = tarefas_at['data_criacao'].apply(
+        lambda x: pd.to_datetime(x).strftime('%d/%m/%Y %H:%M:%S'))
     tarefas = tarefas_at.loc[tarefas_at['status'] == f"finalizado"]
     status = tarefas_at.drop_duplicates(subset=["status"])
     status = status['status'].to_list()
@@ -220,6 +241,13 @@ def status_finalizados(request):
     status.append("todos")
 
     tarefas_keys = list(tarefas[0].keys())
+
+    for tarefa_at in tarefas_at:
+        print(tarefa_at)
+        if tarefa_at['data_finalizacao'] != ".":
+            data_finalizacao = tarefa_at['data_finalizacao'].to_pydatetime()
+            tarefa_at['data_finalizacao'] = data_finalizacao.strftime('%d/%m/%Y %H:%M:%S')
+
     tarefas_values = []
     for tarefa in tarefas:
         tarefa_values = list(tarefa.values())

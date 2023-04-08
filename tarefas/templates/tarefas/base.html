@@ -7,18 +7,20 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css'%}">
 </head>
 <body>
-	<header class="menu">
-		<div>
-			{% block navegador %}{% endblock %}
+	<div id="container">
+		<header class="menu">
+			<div>
+				{% block navegador %}{% endblock %}
+			</div>
+		</header>
+		<div class="conteudo">
+			<main>
+				{% block content %}{% endblock %}
+			</main>
 		</div>
-	</header>
-	<div class="conteudo">
-		<main>
-			{% block content %}{% endblock %}
-		</main>
-	</div>
-	<div class="lateral">
-		{% block lateral %}{% endblock %}
+		<div class="lateral">
+			{% block lateral %}{% endblock %}
+		</div>
 	</div>
 </body>
 </html>

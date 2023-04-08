@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/home/templates/home/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projetos/templates/projetos/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/projetos/templates/projetos/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tarefas/templates/tarefas/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/tarefas/templates/tarefas/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tarefas/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tarefas/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/static/css/estilo.css" beforeDir="false" afterPath="$PROJECT_DIR$/templates/static/css/estilo.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -288,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680970907510</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="commit">
+      <created>1680977587055</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1680977587055</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
