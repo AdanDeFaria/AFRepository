@@ -13,7 +13,6 @@
 }
 
 .menu {
-    background-color: orange;
     padding: 5px;
     margin-bottom: 15px;
 }
@@ -23,3 +22,13 @@ ul  {
     padding: 0;
     list-style: none;
 }
+
+.menu ul {
+    background: #b10333
+    float: left
+}
+
+.menu ul li {
+    float: left
+}
+

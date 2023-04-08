@@ -1,10 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'tarefas/base.html' %}
 
-</body>
-</html>
+{% block titulo %}
+Tarefas
+{% endblock %}
+
+{% block navegador %}
+<nav>
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="./">Projetos</a></li>
+		<li><a href="/tarefas">Tarefas</a></li>
+	</ul>
+</nav>
+{% endblock %}
+
+{% block content %}
+<h1>Criando o Projeto</h1>
+<form method="POST">
+    <label for="projeto">Projeto:</label>
+    <input type="text" id="projeto" name="projeto"><br><br>
+
+    <label for="funcionario">Funcionário:</label>
+    <select id="funcionario" name="funcionario">
+        {% for funcionario in funcionarios %}
+        <option value="{{ funcionario }}">{{ funcionario }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label for="solicitante">Solicitante:</label>
+    <select id="solicitante" name="solicitante">
+        {% for solicitante in solicitantes %}
+        <option value="{{ solicitante }}">{{ solicitante }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label for="versao_atual">Versão Atual:</label>
+    <input type="text" id="versao_atual" name="versao_atual"><br><br>
+
+    <label for="data_prevista">Data Prevista:</label>
+    <input type="date" id="data_prevista" name="data_prevista"><br><br>
+
+    {% csrf_token %}
+    <button type="submit">Criando Projeto</button>
+</form>
+{% endblock %}
+
+{% block lateral %}
+<aside>
+	<ul>
+		<li><a href="./criando_projetos">Criar Projeto</a></li>
+		<li><a href="./finalizando_projetos">Finalizar Projeto</a></li>
+		<li><a href="/tarefas/criando_tarefas">Criar Tarefa</a></li>
+		<li><a href="/tarefas/finalizando_tarefas">Finalizar Tarefa</a></li>
+	</ul>
+</aside>
+{% endblock %}
+

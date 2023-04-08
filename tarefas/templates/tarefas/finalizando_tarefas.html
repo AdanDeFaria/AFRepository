@@ -6,7 +6,7 @@ Tarefas
 
 {% block navegador %}
 <nav>
-	<ul>
+	<ul class="menu">
 		<li><a href="/">Home</a></li>
 		<li><a href="/projetos">Projetos</a></li>
 		<li><a href="./">Tarefas</a></li>
@@ -24,7 +24,7 @@ Tarefas
     </select>
     {% csrf_token %}
     <button type="submit">Finalizando Tarefa</button>
-</form>
+</form><br>
 <h2>Tarefas Ativas</h2>
 <table>
 	<thead>
