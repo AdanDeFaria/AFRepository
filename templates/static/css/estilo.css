@@ -72,3 +72,7 @@ tbody  {
     font-size: 0.8em;
     background: #bee9e8;
 }
+
+td {
+    padding: 0.5em 1.0em;
+}

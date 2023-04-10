@@ -148,11 +148,6 @@ def finalizando_tarefas(request):
     tarefas_at = tarefas_at.to_dict(orient="records")
     print(tarefas_at)
 
-    for tarefa_at in tarefas_at:
-        print(tarefa_at)
-        if tarefa_at['data_finalizacao'] != ".":
-            data_finalizacao = tarefa_at['data_finalizacao'].to_pydatetime()
-            tarefa_at['data_finalizacao'] = data_finalizacao.strftime('%d/%m/%Y %H:%M:%S')
 
     tarefas_values = []
     for tarefa in tarefas:
@@ -242,11 +237,11 @@ def status_finalizados(request):
 
     tarefas_keys = list(tarefas[0].keys())
 
-    for tarefa_at in tarefas_at:
-        print(tarefa_at)
-        if tarefa_at['data_finalizacao'] != ".":
-            data_finalizacao = tarefa_at['data_finalizacao'].to_pydatetime()
-            tarefa_at['data_finalizacao'] = data_finalizacao.strftime('%d/%m/%Y %H:%M:%S')
+    for tarefa in tarefas:
+        print(tarefa)
+        if tarefa['data_finalizacao'] != ".":
+            data_finalizacao = tarefa['data_finalizacao'].to_pydatetime()
+            tarefa['data_finalizacao'] = data_finalizacao.strftime('%d/%m/%Y %H:%M:%S')
 
     tarefas_values = []
     for tarefa in tarefas:
