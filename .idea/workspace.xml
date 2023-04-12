@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fec03a05-71f0-4455-b4ca-d3ae017098b1" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/teste 2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/teste 3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/AFRepository.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AFRepository.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetos/templates/projetos/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/projetos/templates/projetos/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tarefas/templates/tarefas/criando_tarefas.html" beforeDir="false" afterPath="$PROJECT_DIR$/tarefas/templates/tarefas/criando_tarefas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tarefas/templates/tarefas/finalizando_tarefas.html" beforeDir="false" afterPath="$PROJECT_DIR$/tarefas/templates/tarefas/finalizando_tarefas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tarefas/templates/tarefas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tarefas/templates/tarefas/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tarefas/templates/tarefas/status_ativos.html" beforeDir="false" afterPath="$PROJECT_DIR$/tarefas/templates/tarefas/status_ativos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tarefas/templates/tarefas/status_finalizados.html" beforeDir="false" afterPath="$PROJECT_DIR$/tarefas/templates/tarefas/status_finalizados.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/static/css/estilo.css" beforeDir="false" afterPath="$PROJECT_DIR$/templates/static/css/estilo.css" afterDir="false" />
-    </list>
+    <list default="true" id="fec03a05-71f0-4455-b4ca-d3ae017098b1" name="Changes" comment="commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -316,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681129871063</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="commit">
+      <created>1681333982942</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1681333982942</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
