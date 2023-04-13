@@ -1,0 +1,60 @@
+{% extends 'tarefas/base.html' %}
+
+{% block titulo %}
+Tarefas
+{% endblock %}
+
+{% block navegador %}
+<nav>
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/projetos">Projetos</a></li>
+		<li><a href="./">Tarefas</a></li>
+	</ul>
+</nav>
+{% endblock %}
+
+{% block content %}
+<h1>Criando a Tarefa</h1>
+<form method="POST">
+    <label for="employee">Funcionário:</label>
+    <select id="employee" name="employee">
+        {% for employee in employees %}
+        <option value="{{ employee }}">{{ employee }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label for="project">Projeto:</label>
+    <select id="project" name="project">
+        {% for project in projects %}
+        <option value="{{ project }}">{{ project }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label for="task">Tarefa:</label>
+    <select id="task" name="task">
+        {% for task in tasks %}
+        <option value="{{ task }}">{{ task }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label for="requester">Solicitante:</label>
+    <select id="requester" name="requester">
+        {% for requester in requesters %}
+        <option value="{{ requester }}">{{ requester }}</option>
+        {% endfor %}
+    </select><br><br>
+    {% csrf_token %}
+    <button type="submit">Criando Tarefa</button>
+</form>
+{% endblock %}
+
+{% block lateral %}
+<aside>
+	<ul>
+		<li><a href="/tarefas/criando">Criar Tarefa</a></li>
+		<li><a href="/tarefas/finalizando">Finalizar Tarefa</a></li>
+	</ul>
+</aside>
+{% endblock %}
+

@@ -1,0 +1,66 @@
+{% extends 'tarefas/base.html' %}
+
+{% block titulo %}
+Tarefas
+{% endblock %}
+
+{% block navegador %}
+<nav>
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/projetos">Projetos</a></li>
+		<li><a href="./">Tarefas</a></li>
+	</ul>
+</nav>
+{% endblock %}
+
+{% block content %}
+<h2>Tarefas Finalizadas</h2>
+<form method="POST">
+    <label for="status">STATUS:</label>
+    <select id="status" name="status">
+        {% for statu in status %}
+        <option value="{{ statu }}">{{ statu }}</option>
+        {% endfor %}
+    </select>
+    {% csrf_token %}
+    <button type="submit">Filtro</button>
+</form>
+<table>
+	<thead>
+		<tr>
+            <th>ID</th>
+            <th>Tarefas</th>
+            <th>Funcionários</th>
+            <th>Projetos</th>
+            <th>Solicitantes</th>
+            <th>Status</th>
+            <th>Data de Criação</th>
+            <th>Data de Finalização</th>
+        </tr>
+	</thead>
+	<tbody>
+		{% for tarefa in df %}
+      <tr>
+        <td>{{ tarefa.id }}</td>
+        <td>{{ tarefa.tarefas|upper }}</td>
+        <td>{{ tarefa.funcionarios|upper }}</td>
+        <td>{{ tarefa.projetos|upper }}</td>
+        <td>{{ tarefa.solicitantes|upper }}</td>
+        <td>{{ tarefa.status|upper }}</td>
+        <td>{{ tarefa.data_criacao }}</td>
+        <td>{{ tarefa.data_finalizacao }}</td>
+      </tr>
+    {% endfor %}
+	</tbody>
+</table>
+{% endblock %}
+
+{% block lateral %}
+<aside>
+	<ul>
+		<li><a href="./criando">Criar Tarefa</a></li>
+		<li><a href="./finalizando">Finalizar Tarefa</a></li>
+	</ul>
+</aside>
+{% endblock %}
