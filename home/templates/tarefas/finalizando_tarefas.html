@@ -41,17 +41,17 @@ Tarefas
 	</thead>
 	<tbody>
 		{% for tarefa in df %}
-      <tr>
-        <td>{{ tarefa.id }}</td>
-        <td>{{ tarefa.tarefas|upper }}</td>
-        <td>{{ tarefa.funcionarios|upper }}</td>
-        <td>{{ tarefa.projetos|upper }}</td>
-        <td>{{ tarefa.solicitantes|upper }}</td>
-        <td>{{ tarefa.status|upper }}</td>
-        <td>{{ tarefa.data_criacao|upper }}</td>
-        <td></td>
-      </tr>
-    {% endfor %}
+            <tr>
+                <td>{{ tarefa.id }}</td>
+                <td>{{ tarefa.tarefas|upper }}</td>
+                <td>{{ tarefa.funcionarios|upper }}</td>
+                <td>{{ tarefa.projetos|upper }}</td>
+                <td>{{ tarefa.solicitantes|upper }}</td>
+                <td>{{ tarefa.status|upper }}</td>
+                <td>{{ tarefa.data_criacao|upper }}</td>
+                <td></td>
+            </tr>
+        {% endfor %}
 	</tbody>
 </table>
 <p><a href="/">Back to Home</a></p>

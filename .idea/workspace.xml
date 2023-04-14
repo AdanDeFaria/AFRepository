@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fec03a05-71f0-4455-b4ca-d3ae017098b1" name="Changes" comment="commit">
+      <change afterPath="$PROJECT_DIR$/SCRIPTS/SQL/Tabela_Projetos.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SCRIPTS/SQL/Tabela_Projetos_Historico.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SCRIPTS/SQL/Tabela_Status.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SCRIPTS/SQL/Tabela_Tarefas.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SCRIPTS/SQL/Tabela_Tarefas_Tipos.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SCRIPTS/SQL/Tabela_User.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AFRepository/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/AFRepository/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AFRepository/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AFRepository/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tarefas/templates/tarefas/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tarefas/templates/tarefas/status_ativos.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tarefas/templates/tarefas/status_finalizados.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/projetos/finalizando_projetos.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/projetos/finalizando_projetos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/tarefas/finalizando_tarefas.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/tarefas/finalizando_tarefas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tarefas.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/tarefas.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -327,7 +328,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681334177365</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="commit">
+      <created>1681381983826</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1681381983826</updated>
+    </task>
+    <task id="LOCAL-00034" summary="commit">
+      <created>1681382007967</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1681382007967</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
