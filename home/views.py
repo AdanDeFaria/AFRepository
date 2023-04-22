@@ -2,8 +2,19 @@ from django.shortcuts import render, redirect
 import pandas as pd
 import os
 from datetime import datetime as dt
+import mysql.connector
+import json
 from django.http import HttpResponse
 # Create your views here.
+host = "192.168.21.175"
+database = f"safegsi"
+user = "safegsi"
+senha = "hellodwh@solidy"
+tabela = f""
+
+conectar = mysql.connector.connect(host=host, user=user, password=senha)
+
+
 usuario = os.environ['USERPROFILE']
 path = os.path.join(usuario, 'Documents', 'github', 'AFRepository')
 
@@ -24,15 +35,21 @@ def finalizando_projetos(request):
     return render(request, "projetos/finalizando_projetos.html")
 
 def tarefas(request):
-    tarefas_at = pd.read_excel(os.path.join(path, 'tarefas.xlsx'), sheet_name="tarefas")
+    consulta = """SELECT * FROM safegsi.safe_tarefas;"""
+    conexao = mysql.connector.connect(
+        host=host,
+        user=user,
+        password=senha
+    )
+    tarefas_at = pd.read_sql_query(consulta, conexao)
     tarefas_at['data_criacao'] = tarefas_at['data_criacao'].apply(
         lambda x: pd.to_datetime(x).strftime('%d/%m/%Y %H:%M:%S'))
     tarefas_at = tarefas_at.replace(pd.NaT, ".")
     print(tarefas_at)
     status = tarefas_at.drop_duplicates(subset=["status"])
-    status = status['status'].to_list()
-    status.append("Todos")
-    tarefas = tarefas_at.loc[tarefas_at['status'] == "ativo"]
+    status = status['id_status'].to_list()
+    status.append(5)
+    tarefas = tarefas_at.loc[tarefas_at['id_status'] == 1]
     tarefas = pd.DataFrame(tarefas)
     tarefas = tarefas.to_dict(orient="records")
     tarefas_at = tarefas_at.to_dict(orient="records")
@@ -62,7 +79,7 @@ def tarefas(request):
         # Extrai os valores dos campos do formulário
         status1 = request.POST['status']
 
-        if status1 == "Todos":
+        if status1 == 5:
             return redirect(f'./')
         else:
             return redirect(f'./{status1}')
